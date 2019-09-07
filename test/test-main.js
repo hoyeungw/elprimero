@@ -1,0 +1,7 @@
+require('@babel/register')({
+  presets: ['@babel/preset-env'],
+  plugins: [
+    '@babel/plugin-proposal-class-properties'
+  ]
+})
+require('./tasks/test-index')
