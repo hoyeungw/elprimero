@@ -1,22 +1,25 @@
 {
   "name": "elprimero",
-  "version": "0.0.8",
+  "version": "0.0.18",
   "description": "A light and simple chronograph tool for test with countdown in js development.",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "browser": "dist/index.umd.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build-rollup": "rollup -c",
     "prepare": "npm run build-rollup",
     "publish": "npm publish",
-    "test": "node test/test-main.js -r babel-register",
+    "test": "node test/utils/test-main.js -r babel-register",
     "jest-test": "jest"
   },
   "dependencies": {
-    "veho": "^0.1.4",
-    "borel": "^0.0.7",
-    "xbrief": "^0.1.21",
-    "crostab": "^0.1.13"
+    "xbrief": "^0.1.32",
+    "veho": "^0.1.14",
+    "borel": "^0.0.9",
+    "crostab": "^0.1.20"
   },
   "devDependencies": {
     "rollup": "^1.20.3",
