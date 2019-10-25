@@ -1,6 +1,6 @@
 {
   "name": "elprimero",
-  "version": "0.0.18",
+  "version": "0.1.0",
   "description": "A light and simple chronograph tool for test with countdown in js development.",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
@@ -11,30 +11,33 @@
   "scripts": {
     "build-rollup": "rollup -c",
     "prepare": "npm run build-rollup",
-    "publish": "npm publish",
-    "test": "node test/utils/test-main.js -r babel-register",
-    "jest-test": "jest"
+    "pub": "npm publish",
+    "test": "node test/utils/test-main.js",
+    "mocha": "mocha"
   },
   "dependencies": {
-    "xbrief": "^0.1.32",
-    "veho": "^0.1.14",
-    "borel": "^0.0.9",
-    "crostab": "^0.1.20"
+    "spettro": "^0.0.13",
+    "xbrief": "^0.2.4",
+    "veho": "^0.1.27",
+    "borel": "^0.1.8",
+    "crostab": "^0.1.38"
   },
   "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/plugin-proposal-optional-chaining": "^7.6.0",
+    "@babel/plugin-external-helpers": "^7.2.0",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-proposal-pipeline-operator": "^7.5.0",
+    "@babel/plugin-transform-runtime": "^7.6.2",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/register": "^7.5.5",
+    "@babel/runtime": "^7.6.2",
+    "mocha": "^6.2.1",
     "rollup": "^1.20.3",
-    "rollup-plugin-terser": "^5.1.1",
+    "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-babel": "^4.3.3",
-    "jest": "^24.9.0",
-    "@babel/core": "^7.5.5",
-    "@babel/register": "^7.5.5",
-    "@babel/preset-env": "^7.5.5",
-    "@babel/plugin-external-helpers": "^7.2.0",
-    "@babel/plugin-transform-runtime": "^7.5.5",
-    "@babel/plugin-proposal-class-properties": "^7.5.5",
-    "@babel/plugin-proposal-pipeline-operator": "^7.5.0"
+    "rollup-plugin-terser": "^5.1.1"
   },
   "repository": {
     "type": "git",

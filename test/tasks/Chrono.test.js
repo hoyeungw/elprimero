@@ -1,7 +1,4 @@
 import { Chrono } from '../../src/index'
-import { boxoffice } from '../asset/boxoffice.190227'
-import { Stat } from 'borel'
-import { Mat } from 'veho'
 
 class ChronoTest {
   static testCrossFuncsAndRepeats () {
@@ -40,9 +37,9 @@ class ChronoTest {
     }).brief().wL()
   }
 
-  static testCrossFuncsAndParams () {
-    const { lapse, result } = Chrono.crossByParamAndFuncs({
-      repeat: 500000,
+  static testStrategies () {
+    const { lapse, result } = Chrono.strategies({
+      repeat: 1500000,
       paramsList: {
         num_arr: [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 5],
         str_arr: [['Winston', 'Roosevelt', 'Stalin', 'Clinton', 'Bush', 'Eisenhower'], 5],
@@ -61,11 +58,17 @@ class ChronoTest {
         }
       },
     })
-    lapse.pushRow('average', Mat.vehoCol(lapse.matrix, Stat.avg).map(Math.round))
     lapse.brief() |> console.log
     result.brief() |> console.log
   }
 }
+
+describe('Chrono Test', function () {
+  this.timeout(1000 * 60)
+  it('Chrono Test: test Cross Funcs And Params ', () => {
+    ChronoTest.testStrategies()
+  })
+})
 
 export {
   ChronoTest

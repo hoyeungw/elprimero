@@ -4,7 +4,7 @@ ChronoTest.testCrossFuncsAndRepeats()
 
 '' |> console.log
 
-ChronoTest.testCrossFuncsAndParams()
+ChronoTest.testStrategies()
 
 // import { GPTest } from './tasks/GP.test'
 //

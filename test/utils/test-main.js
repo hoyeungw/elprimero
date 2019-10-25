@@ -1,4 +1,2 @@
-require('@babel/register')({
-  presets: ['@babel/preset-env'],
-})
+require('@babel/register')
 require('../test.index')

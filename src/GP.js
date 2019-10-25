@@ -1,68 +1,55 @@
-class Fm {}
-
-Fm.Day = new Intl.DateTimeFormat(
-  undefined,
-  {
-    year: '2-digit',
-    month: '2-digit',
-    day: '2-digit'
-  }
-)
-
-Fm.Time = new Intl.DateTimeFormat(
-  undefined,
-  {
-    hour: 'numeric',
-    minute: 'numeric',
-    second: 'numeric',
+const
+  _d_2 = '2-digit',
+  _num = 'numeric'
+const
+  confDate = {
+    year: _d_2,
+    month: _d_2,
+    day: _d_2
+  },
+  confTime = {
+    hour: _num,
+    minute: _num,
+    second: _num,
     hour12: false
   }
-)
 
-Fm.DayTime = new Intl.DateTimeFormat(
-  undefined,
-  {
-    year: '2-digit',
-    month: '2-digit',
-    day: '2-digit',
-    hour: 'numeric',
-    minute: 'numeric',
-    second: 'numeric',
-    hour12: false
-  }
-)
+class Fm {
+  /**
+   *
+   * @type {Intl.DateTimeFormat}
+   */
+  static Day = new Intl.DateTimeFormat(
+    undefined,
+    confDate
+  )
 
-// Fm.Day = new Intl.DateTimeFormat(
-//   undefined,
-//   {
-//     year: '2-digit',
-//     month: '2-digit',
-//     day: '2-digit'
-//   }
-// )
-//
-// Fm.Time = new Intl.DateTimeFormat(
-//   undefined,
-//   {
-//     hour: 'numeric',
-//     minute: 'numeric',
-//     second: 'numeric',
-//     hour12: false
-//   }
-// )
-//
-// Fm.DayTime = new Intl.DateTimeFormat(
-//   undefined,
-//   {
-//     year: '2-digit',
-//     month: '2-digit',
-//     day: '2-digit',
-//     hour: 'numeric',
-//     minute: 'numeric',
-//     second: 'numeric',
-//     hour12: false
-//   }
-// )
+  /**
+   *
+   * @type {Intl.DateTimeFormat}
+   */
+  static Time = new Intl.DateTimeFormat(
+    undefined,
+    confTime
+  )
+
+  /**
+   *
+   * @type {Intl.DateTimeFormat}
+   */
+  static DayTime = new Intl.DateTimeFormat(
+    undefined,
+    {
+      ...confDate,
+      ...confTime
+    }
+  )
+}
+
+const padMilli = (ms) => {
+  ms = '' + ms
+  return ms.length > 2 ? ms : ('00' + ms).slice(-3)
+}
 
 class GP {
 
@@ -82,7 +69,8 @@ class GP {
    */
   static now () {
     let d = new Date()
-    return `${Fm.Time.format(d)}.${d.getMilliseconds().toPrecision(3)}`
+
+    return `${Fm.Time.format(d)}.${padMilli(d.getMilliseconds())}`
   }
 
   /**

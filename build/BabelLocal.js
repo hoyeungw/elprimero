@@ -26,9 +26,25 @@ BabelLocal.presets =
  */
 BabelLocal.plugins =
   [
-    ['@babel/plugin-proposal-pipeline-operator', {
-      'proposal': 'minimal'
-    }]
+    // [
+    //   '@babel/plugin-transform-runtime',
+    //   {
+    //     'absoluteRuntime': false,
+    //     'corejs': false,
+    //     'helpers': false,
+    //     'regenerator': true,
+    //     'useESModules': false
+    //   }
+    // ],
+    [
+      '@babel/plugin-proposal-pipeline-operator',
+      {
+        'proposal': 'minimal'
+      }
+    ],
+    [
+      '@babel/plugin-proposal-class-properties'
+    ]
   ]
 
 export {
