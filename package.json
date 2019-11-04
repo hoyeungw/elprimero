@@ -18,9 +18,9 @@
   "dependencies": {
     "spettro": "^0.0.13",
     "xbrief": "^0.2.5",
-    "veho": "^0.1.38",
+    "veho": "^0.1.40",
     "borel": "^0.1.11",
-    "crostab": "^0.1.50"
+    "crostab": "^0.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",

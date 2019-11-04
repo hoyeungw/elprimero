@@ -107,12 +107,18 @@ class Chrono {
       }
     }
     let [lapse, result] = [
-      CrosTab.from({ side, banner, matrix: lapseX, title: 'parameter' }),
-      CrosTab.from({ side, banner, matrix: valueX, title: 'parameter' })
-    ]
-    if (config.showAverage) lapse = lapse.unshiftRow('avg',
-      lapse.columns.map(Stat.avg).map(it => it.toFixed()) |> Visual.vector)
-    if (config.showParamsValues) result = result.unshiftCol('input', Object.values(paramsList))
+      CrosTab.from({ side, banner, matrix: lapseX, title: 'parameter' }).clone(),
+      CrosTab.from({ side, banner, matrix: valueX, title: 'parameter' }).clone()
+    ];
+    ([lapse, result])|> deco |> console.log
+    if (config.showAverage) lapse.unshiftRow(
+      'avg',
+      lapse.columns.map(Stat.avg).map(it => it.toFixed()
+      )|> Visual.vector )
+    if (config.showParamsValues) result.unshiftCol(
+      'input',
+      Object.values(paramsList)
+    )
     return { lapse, result }
   }
 }
