@@ -76,7 +76,7 @@ class GP {
    * Return current date array in [Y,M,D] order.
    * @returns {*[]}
    */
-  static todayVec = () => {
+  static todayVec () {
     const td = new Date()
     //Months are zero based
     return [td.getFullYear(), td.getMonth() + 1, td.getDate()]
@@ -87,7 +87,7 @@ class GP {
    * @param {string} [de='-'] - delimiter
    * @returns {string}
    */
-  static  today = (de = '-') => {
+  static today (de = '-') {
     const td = new Date()
     return [
       String(td.getFullYear()).padStart(4, '0'),
