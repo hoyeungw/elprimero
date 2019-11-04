@@ -1,4 +1,4 @@
-import { ArrX } from 'xbrief'
+import { ArrX, deco } from 'xbrief'
 import { Mx, Ar } from 'veho'
 import { ETA } from './ETA'
 import { GP } from './GP'
@@ -6,8 +6,8 @@ import { CrosTab } from 'crostab'
 import { Stat } from 'borel'
 import { Visual } from 'spettro'
 
-const _reh = (repeat, func, params) => {
-  for (let i = --repeat; !!i; --i) func.apply(null, params)
+const _reh = (r, func, params) => {
+  for (--r; r > 0; r--) func.apply(null, params)
   return func.apply(null, params)
 }
 
@@ -25,7 +25,7 @@ class Chrono {
    * @return {*}
    */
   static rehearsalRest (repeat, func, ...params) {
-    for (let i = --repeat; !!i; --i) func.call(null, ...params)
+    for (--repeat; repeat > 0; repeat--) func.call(null, ...params)
     return func.call(null, ...params)
   }
 
@@ -37,7 +37,7 @@ class Chrono {
    * @return {*}
    */
   static rehearsalArgs (repeat, func, params) {
-    for (let i = --repeat; !!i; --i) func.call(null, params)
+    for (--repeat; repeat > 0; repeat--) func.call(null, params)
     return func.call(null, params)
   }
 
@@ -95,7 +95,6 @@ class Chrono {
         Mx.ini(ht, wd, (i, j) => 0),
         Mx.ini(ht, wd, (i, j) => null)
       ]
-
     eta.ini()
     for (let [x, [label, params]] of Object.entries(paramsList).entries()) {
       GP.now().tag(

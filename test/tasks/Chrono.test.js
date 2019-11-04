@@ -39,7 +39,7 @@ class ChronoTest {
 
   static testStrategies () {
     const { lapse, result } = Chrono.strategies({
-      repeat: 1500000,
+      repeat: 5E+6,
       paramsList: {
         num_arr: [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 5],
         str_arr: [['Winston', 'Roosevelt', 'Stalin', 'Clinton', 'Bush', 'Eisenhower'], 5],

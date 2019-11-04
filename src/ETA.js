@@ -1,39 +1,32 @@
 import { Fm } from './GP'
 
+const { Time } = Fm
+const format = Time.format.bind(Time)
+
 export class ETA {
   constructor () {
-    this.current = new Date()
+    this.t = new Date()
   }
 
   ini (msg = '') {
-    const current = new Date()
-    const stamp = `[${Fm.Time.format(current)}] [Ini 0ms] ${msg}`
-    this.current = current
-    return stamp
+    return `[${format(this.t)}] [Ini 0ms] ${msg}`
   }
 
   split () {
-    const current = new Date()
-    const stamp = current - this.current
-    this.current = current
-    return stamp
+    const cur = new Date(), df = cur - this.t
+    this.t = cur
+    return df
   }
 
   lap (msg = '') {
-    const current = new Date()
-    const stamp = `[${Fm.Time.format(current)}] [Lap ${current - this.current}ms] ${msg}`
-    this.current = current
-    return stamp
+    return `[${format(this.t)}] [Lap ${this.split()}ms] ${msg}`
   }
 
   end (msg = '') {
-    const current = new Date()
-    const stamp = `[${Fm.Time.format(current)}] [End ${current - this.current}ms] ${msg}`
-    this.current = current
-    return stamp
+    return `[${format(this.t)}] [End ${this.split()}ms] ${msg}`
   }
 }
 
-// export {
-//   ETA
-// }
+// split: another approach
+// ([this.f, this.t] = [new Date(), this.f])
+// return this.f - this.t
