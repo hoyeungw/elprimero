@@ -110,7 +110,6 @@ class Chrono {
       CrosTab.from({ side, banner, matrix: lapseX, title: 'parameter' }).clone(),
       CrosTab.from({ side, banner, matrix: valueX, title: 'parameter' }).clone()
     ];
-    ([lapse, result])|> deco |> console.log
     if (config.showAverage) lapse.unshiftRow(
       'avg',
       lapse.columns.map(Stat.avg).map(it => it.toFixed()
