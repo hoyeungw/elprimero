@@ -52,6 +52,43 @@ const padMilli = (ms) => {
 }
 
 class GP {
+  /**
+   * hh:mm:ss
+   * @param {Date} [date=new Date()]
+   * @returns {string}
+   */
+  static roughly (date = new Date()) {
+    return Fm.Time.format(date)
+  }
+
+  /**
+   * hh:mm:ss.mmm
+   * @param {Date} date
+   * @returns {string}
+   */
+  static time (date = new Date()) {
+    return `${Fm.Time.format(date)}.${padMilli(date.getMilliseconds())}`
+  }
+
+  static vec (date = new Date()) {
+    return [date.getFullYear(), date.getMonth() + 1, date.getDate()]
+  }
+
+  static y4md (date = new Date(), de = '-') {
+    return [
+      String(date.getFullYear()).padStart(4, '0'),
+      String(date.getMonth() + 1).padStart(2, '0'),  //Months are zero based
+      String(date.getDate()).padStart(2, '0')
+    ].join(de)
+  }
+
+  static mdy (date = new Date()) {
+    return Fm.Day.format(date)
+  }
+
+  static dateTime (date = new Date()) {
+    return Fm.DayTime.format(date)
+  }
 
   /**
    * Return string of current time.
