@@ -12,15 +12,15 @@
     "build-rollup": "rollup -c",
     "prepare": "npm run build-rollup",
     "pub": "npm publish",
-    "test": "node test/utils/test-main.js",
+    "test": "node -r @babel/register test/test.index.js",
     "mocha": "mocha"
   },
   "dependencies": {
-    "spettro": "^0.0.13",
-    "xbrief": "^0.2.5",
-    "veho": "^0.1.40",
+    "spettro": "^0.0.17",
+    "xbrief": "^0.2.7",
+    "veho": "^0.1.54",
     "borel": "^0.1.11",
-    "crostab": "^0.2.0"
+    "crostab": "^0.2.4"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
@@ -37,7 +37,10 @@
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-terser": "^5.1.1"
+    "rollup-plugin-terser": "^5.1.1",
+    "cron": "^1.7.2",
+    "date-fns": "^2.7.0",
+    "moment": "^2.24.0"
   },
   "repository": {
     "type": "git",

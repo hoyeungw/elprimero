@@ -1,8 +1,8 @@
 import { ChronoTest } from './tasks/Chrono.test'
 
-ChronoTest.testCrossFuncsAndRepeats()
+// ChronoTest.testCrossFuncsAndRepeats()
 
-'' |> console.log
+// '' |> console.log
 
 ChronoTest.testStrategies()
 

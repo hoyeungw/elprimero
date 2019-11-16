@@ -1,4 +1,4 @@
-import { ArrX, deco } from 'xbrief'
+import { ArrX} from 'xbrief'
 import { Mx, Ar } from 'veho'
 import { ETA } from './ETA'
 import { GP } from './GP'
